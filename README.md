@@ -1,6 +1,6 @@
-# game_scarlett_master.exe
+<img width="1600" height="900" alt="screenshot" src="https://github.com/user-attachments/assets/4addf923-44fa-4875-8b5d-a9361c637aa2" />
 
-A GTA VI styled launcher: shows the key art as a splash screen, runs a short boot
+# Grand Theft Auto VI Styled Launcher shows the key art as a splash screen, runs a short boot
 sequence, then starts the real game install.
 
 ## Run it
