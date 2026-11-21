@@ -1,3 +1,4 @@
+![Uploading screenshot.png…]()
 # game_scarlett_master.exe
 
 A GTA VI styled launcher: shows the key art as a splash screen, runs a short boot
