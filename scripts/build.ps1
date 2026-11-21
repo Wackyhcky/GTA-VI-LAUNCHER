@@ -1,14 +1,11 @@
-# Build the portable exe, stamp the version resource, then apply the
-# self-signed novelty code signature.
+# Build the portable exe, then apply the self-signed novelty code signature.
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 Set-Location $root
 
 $signtool = "C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\signtool.exe"
-$rcedit = Join-Path $root "node_modules\electron-winstaller\vendor\rcedit.exe"
-$pfx = Join-Path $root "signing\rockstar-novelty.pfx"
+$pfx = Join-Path $root "signing\scarlett-novelty.pfx"
 $exe = Join-Path $root "dist\game_scarlett_master.exe"
-$copyright = [string][char]0x00A9
 
 Write-Host "==> Building portable exe..." -ForegroundColor Cyan
 npm run dist
@@ -21,7 +18,7 @@ Write-Host "==> Stamping version resource..." -ForegroundColor Cyan
 
 if (Test-Path $pfx) {
   Write-Host "==> Signing $exe" -ForegroundColor Cyan
-  & $signtool sign /fd SHA256 /f $pfx /p "scarlett" /d "Grand Theft Auto VI" /du "https://www.rockstargames.com/" $exe
+  & $signtool sign /fd SHA256 /f $pfx /p "scarlett" /d "Scarlett Launcher" /du "https://example.invalid/" $exe
 } else {
   Write-Host "!! No pfx found, skipping signature. Run scripts\make-cert.ps1 first." -ForegroundColor Yellow
 }
@@ -35,4 +32,5 @@ $v = (Get-Item $exe).VersionInfo
   ProductName      = $v.ProductName
   FileVersion      = $v.FileVersion
   LegalCopyright   = $v.LegalCopyright
+  LegalTrademarks  = $v.LegalTrademarks
 } | Format-List

@@ -1,15 +1,15 @@
 {
   "name": "game_scarlett_master",
-  "productName": "Grand Theft Auto VI",
+  "productName": "Scarlett Launcher",
   "version": "1.0.2",
   "private": true,
-  "description": "Grand Theft Auto VI",
+  "description": "Unofficial novelty game launcher",
   "main": "main.js",
   "author": {
-    "name": "Rockstar Games, Inc.",
-    "email": "support@rockstargames.com"
+    "name": "Scarlett Novelty Works",
+    "email": "hello@example.invalid"
   },
-  "copyright": "\u00a9 2006-2026 Rockstar Games, Inc. All rights reserved.",
+  "copyright": "\u00a9 2026 Scarlett Novelty Works. Unofficial fan project.",
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder --win portable"
@@ -19,11 +19,11 @@
     "electron-builder": "^26.0.0"
   },
   "build": {
-    "appId": "com.rockstargames.gtavi",
-    "productName": "Grand Theft Auto VI",
+    "appId": "com.scarlettnovelty.launcher",
+    "productName": "Scarlett Launcher",
     "executableName": "game_scarlett_master",
     "artifactName": "game_scarlett_master.exe",
-    "copyright": "\u00a9 2006-2026 Rockstar Games, Inc. All rights reserved.",
+    "copyright": "\u00a9 2026 Scarlett Novelty Works. Unofficial fan project.",
     "directories": {
       "output": "dist",
       "buildResources": "assets"
@@ -46,7 +46,7 @@
         }
       ],
       "icon": "assets/icon.ico",
-      "legalTrademarks": "Grand Theft Auto, GTA, Rockstar Games and the Rockstar logo are trademarks of Rockstar Games, Inc."
+      "legalTrademarks": "All trademarks are the property of their respective owners. Unofficial fan project."
     },
     "portable": {
       "artifactName": "game_scarlett_master.exe",

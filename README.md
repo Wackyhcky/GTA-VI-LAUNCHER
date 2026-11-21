@@ -58,7 +58,7 @@ Example for a Store copy:
 
 ```json
 "game": {
-  "aumid": "RockstarGamesInc.28872443D20A7_8wekyb3d8bbwe!GTAO"
+  "aumid": "Publisher.1234567890ABC_8wekyb3d8bbwe!App"
 }
 ```
 
@@ -78,17 +78,17 @@ array, so `game-finder.js` must be in that list (it is).
 
 File properties report:
 
-| Field           | Value                                              |
-| --------------- | -------------------------------------------------- |
-| CompanyName     | Rockstar Games, Inc.                               |
-| ProductName     | Grand Theft Auto VI                                |
-| FileVersion     | 1.0.2                                              |
-| LegalCopyright  | © 2006-2026 Rockstar Games, Inc. All rights reserved. |
-| LegalTrademarks | GTA / Rockstar marks belong to Rockstar Games, Inc. |
+| Field           | Value                                                        |
+| --------------- | ------------------------------------------------------------ |
+| CompanyName     | Scarlett Novelty Works                                       |
+| ProductName     | Scarlett Launcher                                            |
+| FileVersion     | 1.0.2                                                        |
+| LegalCopyright  | © 2026 Scarlett Novelty Works. Unofficial fan project.       |
+| LegalTrademarks | All trademarks are the property of their respective owners.  |
 
 The exe is signed with a **self-signed** certificate whose subject is
-`CN=Rockstar Games Inc., O=Rockstar Games Inc.` — created locally by
-`scripts\make-cert.ps1`.
+`CN=Scarlett Novelty Works` — created locally by `scripts\make-cert.ps1`.
+The pfx lives at `signing\scarlett-novelty.pfx`.
 
 Consequences, by design:
 

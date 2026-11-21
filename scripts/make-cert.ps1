@@ -2,8 +2,8 @@
 # Windows will report the signature as untrusted unless this cert is manually
 # installed into the Trusted Root store -- which this script does NOT do.
 param(
-  [string]$Subject = "CN=Rockstar Games\, Inc., O=Rockstar Games\, Inc., L=New York, S=New York, C=US",
-  [string]$OutFile = "signing\rockstar-novelty.pfx",
+  [string]$Subject = "CN=Scarlett Novelty Works",
+  [string]$OutFile = "signing\scarlett-novelty.pfx",
   [string]$Password = "scarlett"
 )
 
@@ -14,7 +14,7 @@ if ($dir -and -not (Test-Path $dir)) { New-Item -ItemType Directory -Path $dir |
 $cert = New-SelfSignedCertificate `
   -Type CodeSigningCert `
   -Subject $Subject `
-  -FriendlyName "Rockstar Games, Inc. (novelty build)" `
+  -FriendlyName "Scarlett Novelty Works (unofficial fan project)" `
   -KeyUsage DigitalSignature `
   -KeyExportPolicy Exportable `
   -NotAfter (Get-Date).AddYears(5) `
