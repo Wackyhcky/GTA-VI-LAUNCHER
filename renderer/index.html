@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+  <title>GRAND THEFT AUTO VI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="splash" class="stage">
+    <div class="art"></div>
+    <div class="scrim"></div>
+    <div class="grain"></div>
+
+    <!-- top bar -->
+    <header class="topbar">
+      <div class="brand">
+        <img id="brandIcon" alt="" />
+        <span>ROCKSTAR&nbsp;LAUNCHER</span>
+      </div>
+      <div class="wincontrols">
+        <button id="btnMin" title="Minimize">&#8211;</button>
+        <button id="btnClose" title="Close">&#10005;</button>
+      </div>
+    </header>
+
+    <!-- boot -->
+    <footer class="boot">
+      <div class="bar"><i id="barFill"></i></div>
+      <p class="status" id="status">INITIALIZING LAUNCHER&hellip;</p>
+      <p class="hint" id="hint">PRESS ENTER TO PLAY</p>
+      <p class="legal">
+        &copy; 2006-2026 Rockstar Games, Inc. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- launch failure / not-installed overlay -->
+    <div class="game-error" id="gameError" hidden>
+      <h2 id="gameErrorTitle">GAME NOT FOUND</h2>
+      <p id="gameErrorBody"></p>
+    </div>
+  </main>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

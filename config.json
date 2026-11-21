@@ -1,0 +1,10 @@
+{
+  "logo": "assets/logo.png",
+  "title": "GRAND THEFT AUTO VI",
+  "game": {
+    "path": "",
+    "args": [],
+    "cwd": "",
+    "aumid": ""
+  }
+}

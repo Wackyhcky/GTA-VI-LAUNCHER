@@ -1,0 +1,57 @@
+{
+  "name": "game_scarlett_master",
+  "productName": "Grand Theft Auto VI",
+  "version": "1.0.2",
+  "private": true,
+  "description": "Grand Theft Auto VI",
+  "main": "main.js",
+  "author": {
+    "name": "Rockstar Games, Inc.",
+    "email": "support@rockstargames.com"
+  },
+  "copyright": "\u00a9 2006-2026 Rockstar Games, Inc. All rights reserved.",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.rockstargames.gtavi",
+    "productName": "Grand Theft Auto VI",
+    "executableName": "game_scarlett_master",
+    "artifactName": "game_scarlett_master.exe",
+    "copyright": "\u00a9 2006-2026 Rockstar Games, Inc. All rights reserved.",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "main.js",
+      "game-finder.js",
+      "preload.js",
+      "config.json",
+      "renderer/**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "legalTrademarks": "Grand Theft Auto, GTA, Rockstar Games and the Rockstar logo are trademarks of Rockstar Games, Inc."
+    },
+    "portable": {
+      "artifactName": "game_scarlett_master.exe",
+      "requestExecutionLevel": "user"
+    },
+    "compression": "maximum"
+  }
+}

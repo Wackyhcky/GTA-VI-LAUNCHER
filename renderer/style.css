@@ -1,0 +1,247 @@
+:root {
+  --pink: #ff2d8a;
+  --hot: #ff5a3c;
+  --amber: #ffb347;
+  --violet: #6b1fb8;
+  --ink: #07030c;
+}
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--ink);
+  color: #fff;
+  overflow: hidden;
+  font-family: "Segoe UI", "Inter", system-ui, sans-serif;
+  user-select: none;
+  cursor: default;
+}
+
+/* ---------- stage ---------- */
+.stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #0a0316;
+  transition: opacity 420ms ease;
+  animation: stageIn 900ms ease both;
+}
+
+.stage.fading { opacity: 0; }
+
+@keyframes stageIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* the real key art, full bleed with a slow drift */
+.art {
+  position: absolute;
+  inset: -2%;
+  background-image: url("../assets/splash.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  animation: drift 34s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes drift {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to { transform: scale(1.045) translate3d(-0.6%, -0.4%, 0); }
+}
+
+/* keep the bottom UI readable without washing out the artwork */
+.scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(0deg, rgba(6, 2, 14, 0.94) 0%, rgba(6, 2, 14, 0.72) 15%, rgba(6, 2, 14, 0) 38%),
+    linear-gradient(180deg, rgba(6, 2, 14, 0.6) 0%, rgba(6, 2, 14, 0) 16%),
+    radial-gradient(130% 100% at 50% 45%, transparent 55%, rgba(4, 1, 10, 0.62) 100%);
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image: repeating-linear-gradient(0deg,
+      rgba(255, 255, 255, 0.04) 0px,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 3px);
+  mix-blend-mode: overlay;
+}
+
+/* ---------- top bar ---------- */
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  -webkit-app-region: drag;
+  z-index: 20;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  color: rgba(255, 255, 255, 0.72);
+  text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+}
+
+.brand img {
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.22), 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.wincontrols {
+  display: flex;
+  gap: 6px;
+  -webkit-app-region: no-drag;
+}
+
+.wincontrols button {
+  width: 30px;
+  height: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(10, 4, 18, 0.45);
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 5px;
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.wincontrols button:hover {
+  background: rgba(255, 45, 138, 0.35);
+  border-color: rgba(255, 120, 180, 0.6);
+  color: #fff;
+}
+
+/* ---------- boot footer ---------- */
+.boot {
+  position: absolute;
+  left: 50%;
+  bottom: 4.6vh;
+  transform: translateX(-50%);
+  width: min(620px, 70vw);
+  text-align: center;
+  z-index: 15;
+}
+
+.bar {
+  position: relative;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+}
+
+.bar i {
+  display: block;
+  width: 0%;
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #ffb347, #ff2d8a 55%, #a855f7);
+  box-shadow: 0 0 14px rgba(255, 45, 138, 0.9);
+  transition: width 420ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.status {
+  margin: 10px 0 0;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+  min-height: 14px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+
+.hint {
+  margin: 14px 0 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 500ms ease;
+  text-shadow: 0 0 18px rgba(255, 90, 140, 0.9), 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.hint.show {
+  opacity: 1;
+  animation: blink 2.1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  0%, 62% { opacity: 1; }
+  63%, 100% { opacity: 0.22; }
+}
+
+.legal {
+  margin: 16px 0 0;
+  font-size: 9px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.38);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* ---------- game launch error ---------- */
+.game-error {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: rgba(5, 2, 10, 0.93);
+  text-align: center;
+  padding: 6vw;
+}
+
+.game-error h2 {
+  margin: 0;
+  font-family: "Haettenschweiler", "Impact", sans-serif;
+  font-size: 42px;
+  letter-spacing: 0.06em;
+  color: #ff2d8a;
+  text-shadow: 0 0 26px rgba(255, 45, 138, 0.45);
+}
+
+.game-error p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: pre-line;
+  word-break: break-all;
+  max-width: 70ch;
+  font-family: "Cascadia Mono", "Consolas", monospace;
+}
